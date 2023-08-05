@@ -10,6 +10,7 @@ name: Packages-AutoBuild
 
 on: 
   repository_dispatch:
+  workflow_dispatch:
   # push: 
   #   branches:
   #     - master
@@ -27,7 +28,6 @@ env:
 
 jobs:
   build:
-    if: github.event.repository.owner.id == github.event.sender.id || github.event.sender.id == '119362912'
     runs-on: Ubuntu-22.04
     
     name: Build ${{matrix.target}}
